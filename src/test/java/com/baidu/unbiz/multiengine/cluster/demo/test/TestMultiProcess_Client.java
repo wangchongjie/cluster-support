@@ -17,7 +17,7 @@ import com.baidu.unbiz.multiengine.cluster.utils.TestUtils;
 import com.baidu.unbiz.multiengine.cluster.vo.DeviceRequest;
 import com.baidu.unbiz.multiengine.cluster.vo.DeviceViewItem;
 import com.baidu.unbiz.multiengine.cluster.vo.QueryParam;
-import com.baidu.unbiz.multiengine.cluster.zk.client.ZKClient;
+import com.baidu.unbiz.multiengine.cluster.zookeeper.client.ZKClient;
 import com.baidu.unbiz.multiengine.common.DisTaskPair;
 import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.task.ParallelExePool;

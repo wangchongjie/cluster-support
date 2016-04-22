@@ -1,4 +1,4 @@
-package com.baidu.unbiz.multiengine.cluster.zk;
+package com.baidu.unbiz.multiengine.cluster.zookeeper;
 
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
@@ -23,19 +23,19 @@ public class ZKPeerNode extends QuorumPeerMain {
 
     private volatile boolean running = false;
     private ZKNode delegate;
-    private ExecutorService executor = Executors.newSingleThreadExecutor(new CustomizableThreadFactory("zk"));
+    private ExecutorService executor = Executors.newSingleThreadExecutor(new CustomizableThreadFactory("zookeeper"));
 
     @PostConstruct
     public void start() {
         running = true;
         delegate = config.getServers().isEmpty() ? new ZKStandaloneNode(config) : new ZKClusterNode(config);
         executor.execute(new Daemon());
-        logger.info("start the zk server node:[{}]", delegate);
+        logger.info("start the zookeeper server node:[{}]", delegate);
     }
 
     @PreDestroy
     public void stop() {
-        logger.info("stop the zk server node:[{}]", delegate);
+        logger.info("stop the zookeeper server node:[{}]", delegate);
         running = false;
         delegate.stop();
         executor.shutdown();
@@ -66,7 +66,7 @@ public class ZKPeerNode extends QuorumPeerMain {
                 try {
                     delegate.start();
                 } catch (Throwable e) {
-                    logger.error("zk node due to error,the node would be stop", e);
+                    logger.error("zookeeper node due to error,the node would be stop", e);
 
                     // 如果是持续运行的状态,那么先关闭原有的node
                     if (running) {

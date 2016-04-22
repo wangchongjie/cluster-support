@@ -9,7 +9,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 
 import com.baidu.unbiz.multiengine.cluster.constants.ClusterConstants;
-import com.baidu.unbiz.multiengine.cluster.zk.client.ZKClient;
+import com.baidu.unbiz.multiengine.cluster.zookeeper.client.ZKClient;
 import com.baidu.unbiz.multiengine.endpoint.EndpointPool;
 import com.baidu.unbiz.multiengine.endpoint.HostConf;
 import com.baidu.unbiz.multiengine.endpoint.supervisor.EndpointSupervisor;

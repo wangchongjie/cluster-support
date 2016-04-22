@@ -20,7 +20,7 @@ public class CustomizableExecutors {
     private static long default_thread_timeout = 1;
 
     public static ExecutorService newFixedThreadPool(int nThreads) {
-        return newFixedThreadPool(nThreads, "msoa.thread");
+        return newFixedThreadPool(nThreads, "cluster.thread");
     }
 
     public static ExecutorService newFixedThreadPool(int nThreads, String name) {

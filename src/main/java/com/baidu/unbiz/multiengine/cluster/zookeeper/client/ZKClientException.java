@@ -1,4 +1,4 @@
-package com.baidu.unbiz.multiengine.cluster.zk.client;
+package com.baidu.unbiz.multiengine.cluster.zookeeper.client;
 
 public class ZKClientException extends RuntimeException {
 

@@ -1,4 +1,4 @@
-package com.baidu.unbiz.multiengine.cluster.zk.client;
+package com.baidu.unbiz.multiengine.cluster.zookeeper.client;
 
 import java.util.Collections;
 import java.util.List;
@@ -51,7 +51,7 @@ public class ZKClient {
         try {
             curator.blockUntilConnected();
         } catch (InterruptedException e) {
-            logger.error("connected to zk due to error", e);
+            logger.error("connected to zookeeper due to error", e);
             return false;
         }
 

@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.baidu.unbiz.multiengine.cluster.endpoint.supervisor.ClusterEndpointSupervisor;
 import com.baidu.unbiz.multiengine.cluster.utils.TestUtils;
-import com.baidu.unbiz.multiengine.cluster.zk.client.ZKClient;
+import com.baidu.unbiz.multiengine.cluster.zookeeper.client.ZKClient;
 
 /**
  * Created by wangchongjie on 16/4/18.

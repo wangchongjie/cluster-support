@@ -17,7 +17,6 @@ import com.baidu.unbiz.multiengine.cluster.vo.DeviceRequest;
 import com.baidu.unbiz.multiengine.cluster.vo.DeviceViewItem;
 import com.baidu.unbiz.multiengine.cluster.vo.QueryParam;
 import com.baidu.unbiz.multiengine.common.DisTaskPair;
-import com.baidu.unbiz.multitask.common.TaskPair;
 import com.baidu.unbiz.multitask.forkjoin.ForkJoin;
 import com.baidu.unbiz.multitask.task.ParallelExePool;
 import com.baidu.unbiz.multitask.task.thread.MultiResult;

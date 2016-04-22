@@ -1,18 +1,16 @@
-package com.baidu.unbiz.multiengine.cluster.zk;
+package com.baidu.unbiz.multiengine.cluster.zookeeper;
 
 import java.io.IOException;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.apache.zookeeper.server.ServerConfig;
+import org.apache.zookeeper.server.ZooKeeperServerMain;
 import org.apache.zookeeper.server.quorum.QuorumPeerConfig;
-import org.apache.zookeeper.server.quorum.QuorumPeerMain;
 
-/**
- * Created by pippo on 16/4/19.
- */
-public class ZKClusterNode extends QuorumPeerMain implements ZKNode {
+public class ZKStandaloneNode extends ZooKeeperServerMain implements ZKNode {
 
-    public ZKClusterNode(QuorumPeerConfig config) {
+    public ZKStandaloneNode(QuorumPeerConfig config) {
         this.config = config;
     }
 
@@ -20,12 +18,14 @@ public class ZKClusterNode extends QuorumPeerMain implements ZKNode {
 
     @Override
     public void start() throws IOException {
-        runFromConfig(config);
+        ServerConfig serverConfig = new ServerConfig();
+        serverConfig.readFrom(config);
+        runFromConfig(serverConfig);
     }
 
     @Override
     public void stop() {
-        quorumPeer.shutdown();
+        shutdown();
     }
 
     @Override

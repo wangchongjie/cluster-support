@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.baidu.unbiz.multiengine.cluster.constants.ClusterConstants;
-import com.baidu.unbiz.multiengine.cluster.zk.ZKTreeCache;
+import com.baidu.unbiz.multiengine.cluster.zookeeper.ZKTreeCache;
 
 @Component("zkEndpointCache")
 public class ZKEndpointCache extends ZKTreeCache {

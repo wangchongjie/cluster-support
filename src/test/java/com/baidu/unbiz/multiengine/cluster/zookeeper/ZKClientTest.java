@@ -1,4 +1,4 @@
-package com.baidu.unbiz.multiengine.cluster.zk;
+package com.baidu.unbiz.multiengine.cluster.zookeeper;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import com.baidu.unbiz.multiengine.cluster.zk.client.ZKClient;
+import com.baidu.unbiz.multiengine.cluster.zookeeper.client.ZKClient;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext-test.xml")
