@@ -8,16 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.baidu.unbiz.multiengine.cluster.constants.ClusterConstants;
 import com.baidu.unbiz.multiengine.cluster.zk.ZKTreeCache;
 
 @Component("zkEndpointCache")
 public class ZKEndpointCache extends ZKTreeCache {
 
-    private static String ENDPOINT_STATUS = "/multi-engine/head";
-
     @Autowired
     public ZKEndpointCache(@Qualifier("curatorFramework") CuratorFramework curator) {
-        super(curator, ENDPOINT_STATUS);
+        super(curator, ClusterConstants.ZK_BASE_PATH);
     }
 
     @PostConstruct

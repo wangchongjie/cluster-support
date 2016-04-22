@@ -23,6 +23,7 @@
         <curator.version>2.9.0</curator.version>
         <jackson2.version>2.5.1</jackson2.version>
         <google.guava.version>18.0</google.guava.version>
+        <multiengine.version>1.0.0</multiengine.version>
     </properties>
 
     <inceptionYear>2016</inceptionYear>
@@ -36,6 +37,11 @@
     </licenses>
 
     <dependencies>
+        <dependency>
+            <groupId>com.baidu.unbiz</groupId>
+            <artifactId>multi-engine</artifactId>
+            <version>${multiengine.version}</version>
+        </dependency>
         <!-- zookeeper -->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
