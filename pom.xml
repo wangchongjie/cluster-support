@@ -8,7 +8,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>cluster-support</name>
-    <description>cluster-support is a Java framework for parallel processing which is based annotation.</description>
+    <description>cluster-support is a optional cluster support component for multi-engine..</description>
 
     <properties>
         <!-- version variable -->

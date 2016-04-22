@@ -19,9 +19,27 @@ public class ZKClientTest {
 
     @Test
     public void testZkCLient() {
-
         List<String> children = zkClient.getChildren("/");
         System.out.println(children);
+
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testSetEphemeralData() {
+        String path = "/multi-engine/temp/test";
+        zkClient.setEphemeralData(path, "testvalue".getBytes());
+        System.out.println(new String(zkClient.getData(path)));
+
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

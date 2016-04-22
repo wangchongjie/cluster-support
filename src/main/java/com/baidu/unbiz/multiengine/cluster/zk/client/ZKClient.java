@@ -13,6 +13,7 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.api.BackgroundCallback;
 import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.framework.api.CuratorEventType;
+import org.apache.curator.framework.recipes.nodes.PersistentEphemeralNode;
 import org.apache.zookeeper.KeeperException.Code;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,14 +65,26 @@ public class ZKClient {
         return curator;
     }
 
-    public void setData(final String path, final byte[] data) {
+    public void setEphemeralData(final String path, final byte[] data) {
+        if (!check()) {
+            return;
+        }
+        PersistentEphemeralNode node =
+                new PersistentEphemeralNode(curator, PersistentEphemeralNode.Mode.EPHEMERAL, path, data);
+        node.start();
+        try {
+            node.waitForInitialCreate(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
 
+    public void setData(final String path, final byte[] data) {
         if (!check()) {
             return;
         }
 
         final BlockCallback<Void> callback = new BlockCallback<Void>();
-
         try {
             curator.checkExists().inBackground(new BackgroundCallback() {
 
@@ -110,7 +123,6 @@ public class ZKClient {
         }
 
         final BlockCallback<byte[]> callback = new BlockCallback<byte[]>();
-
         try {
             curator.checkExists().inBackground(new BackgroundCallback() {
 
@@ -148,7 +160,6 @@ public class ZKClient {
         }
 
         final BlockCallback<List<String>> callback = new BlockCallback<List<String>>();
-
         try {
             curator.checkExists().inBackground(new BackgroundCallback() {
                 @Override
@@ -179,7 +190,6 @@ public class ZKClient {
         }
 
         final BlockCallback<Void> callback = new BlockCallback<Void>();
-
         try {
             curator.checkExists().inBackground(new BackgroundCallback() {
 
@@ -207,7 +217,6 @@ public class ZKClient {
     }
 
     private class BlockCallback<T> {
-
         Semaphore monitor = new Semaphore(0);
         T result = null;
 
