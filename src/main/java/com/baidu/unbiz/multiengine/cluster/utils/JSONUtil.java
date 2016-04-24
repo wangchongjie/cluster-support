@@ -124,8 +124,6 @@ public class JSONUtil {
     }
 
     public interface Assembler<T> {
-
         T assemble(JsonNode jsonNode);
-
     }
 }
