@@ -23,6 +23,7 @@ import com.baidu.unbiz.multiengine.endpoint.HostConf;
 public class EndpointStatusListener implements TreeCacheListener {
     private static Logger logger = LoggerFactory.getLogger(EndpointStatusListener.class);
 
+    // pattern for ip
     private static Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+):(\\d+)");
 
     private String findHostConf(String path){
