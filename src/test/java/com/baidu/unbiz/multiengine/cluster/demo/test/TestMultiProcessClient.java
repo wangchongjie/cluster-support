@@ -28,7 +28,7 @@ import com.baidu.unbiz.multitask.task.thread.MultiResult;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext-test2.xml")
-public class TestMultiProcess_Client {
+public class TestMultiProcessClient {
 
     @Resource(name = "distributedParallelExePool")
     private ParallelExePool parallelExePool;

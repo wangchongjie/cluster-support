@@ -18,7 +18,7 @@ import com.baidu.unbiz.multiengine.cluster.zookeeper.client.ZKClient;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext-test2.xml")
-public class TestMultiProcess_Server2 {
+public class TestMultiProcessServer3 {
 
     @Resource(name = "ZKClient")
     private ZKClient zkClient;
@@ -28,7 +28,7 @@ public class TestMultiProcess_Server2 {
     @Before
     public void init() {
         supervisor = new ClusterEndpointSupervisor(zkClient);
-        supervisor.setExportPort("8802");
+        supervisor.setExportPort("8803");
         supervisor.init();
     }
 
@@ -42,7 +42,7 @@ public class TestMultiProcess_Server2 {
      */
     @Test
     public void runServer() {
-        TestUtils.dumySleep(TestUtils.VERY_LONG_TIME);
+        TestUtils.dumySleep(10000);
     }
 
 }

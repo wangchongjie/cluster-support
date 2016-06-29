@@ -30,7 +30,8 @@ public class ClusterEndpointSupervisor implements EndpointSupervisor {
     @Resource(name = "ZKClient")
     private ZKClient zkClient;
 
-    public ClusterEndpointSupervisor() {}
+    public ClusterEndpointSupervisor() {
+    }
 
     public ClusterEndpointSupervisor(ZKClient zkClient) {
         this.zkClient = zkClient;
@@ -41,7 +42,7 @@ public class ClusterEndpointSupervisor implements EndpointSupervisor {
         System.out.println(endpoints);
 
         List<HostConf> hostConfs = new ArrayList<HostConf>();
-        for (String endpoint : endpoints){
+        for (String endpoint : endpoints) {
             hostConfs.addAll(HostConf.resolveHost(endpoint));
         }
         return hostConfs;

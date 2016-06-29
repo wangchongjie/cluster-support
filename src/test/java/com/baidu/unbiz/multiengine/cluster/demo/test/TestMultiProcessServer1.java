@@ -18,7 +18,7 @@ import com.baidu.unbiz.multiengine.cluster.zookeeper.client.ZKClient;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/applicationContext-test2.xml")
-public class TestMultiProcess_Server1 {
+public class TestMultiProcessServer1 {
 
     @Resource(name = "ZKClient")
     private ZKClient zkClient;

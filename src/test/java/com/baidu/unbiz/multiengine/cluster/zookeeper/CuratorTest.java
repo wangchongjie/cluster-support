@@ -72,9 +72,9 @@ public class CuratorTest {
         CuratorFramework client = buildClient();
         client.start();
 
-        String PATH = "/head/temp";
+        String path = "/head/temp";
         PersistentEphemeralNode node =
-                new PersistentEphemeralNode(client, PersistentEphemeralNode.Mode.EPHEMERAL, PATH, "test".getBytes());
+                new PersistentEphemeralNode(client, PersistentEphemeralNode.Mode.EPHEMERAL, path, "test".getBytes());
         node.start();
         node.waitForInitialCreate(3, TimeUnit.SECONDS);
         String actualPath = node.getActualPath();

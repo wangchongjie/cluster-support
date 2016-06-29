@@ -26,7 +26,7 @@ public class EndpointStatusListener implements TreeCacheListener {
     // pattern for ip
     private static Pattern pattern = Pattern.compile("(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+):(\\d+)");
 
-    private String findHostConf(String path){
+    private String findHostConf(String path) {
         Matcher matcher = pattern.matcher(path);
         if (matcher.find()) {
             return matcher.group();
